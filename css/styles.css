@@ -1,0 +1,507 @@
+/* Elite Dangerous System Finder - Main Styles */
+:root {
+  --primary-color: #ff6600;
+  --secondary-color: #0066cc;
+  --bg-color: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-color: #e0e0e0;
+  --border-color: #333;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --danger-color: #f44336;
+  --header-height: 60px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header */
+header {
+  background-color: var(--bg-secondary);
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  color: var(--primary-color);
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+button.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+button.secondary {
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+button.primary:hover {
+  background-color: #e65c00;
+}
+
+button.secondary:hover {
+  background-color: #2a2a2a;
+}
+
+/* Search Section */
+.search-section {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.search-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.search-controls .form-group {
+  flex: 1;
+  min-width: 120px;
+}
+
+.search-controls button {
+  height: 42px;
+}
+
+/* Filters Section */
+.filters-section {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.filter-group h3 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+.filter-option {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-option input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.filter-option label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.filter-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Results Section */
+.results-section {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.results-table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: #2a2a2a;
+  color: var(--primary-color);
+}
+
+tr:hover {
+  background-color: #2a2a2a;
+  cursor: pointer;
+}
+
+.no-results {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #888;
+  display: none;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+  text-align: center;
+  padding: 30px;
+  display: none;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 102, 0, 0.3);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* System Details */
+.system-details {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.details-content {
+  margin-top: 15px;
+}
+
+.details-loading {
+  text-align: center;
+  padding: 20px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.body-card {
+  background-color: #252525;
+  border-radius: 8px;
+  padding: 15px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.body-card h3 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.body-type {
+  font-style: italic;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.body-properties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.body-property {
+  background-color: #333;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.property-elw {
+  background-color: #4caf50;
+  color: white;
+}
+
+.property-ringed {
+  background-color: #9c27b0;
+  color: white;
+}
+
+.property-landable {
+  background-color: #ff9800;
+  color: white;
+}
+
+.property-terraformable {
+  background-color: #2196f3;
+  color: white;
+}
+
+/* System Name Copy Button */
+.system-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.copy-btn:hover {
+  opacity: 1;
+  background-color: rgba(255, 102, 0, 0.1);
+}
+
+.copy-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Tooltip styles */
+.copy-tooltip {
+  position: relative;
+}
+
+.copy-tooltip::after {
+  content: "Copied!";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.copy-tooltip.show::after {
+  opacity: 1;
+}
+
+/* Sortable Table Headers */
+th.sortable {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+th.sortable:hover {
+  background-color: #333;
+}
+
+th.sortable::after {
+  content: " ⇕";
+  opacity: 0.5;
+  font-size: 0.8em;
+}
+
+th.sort-asc::after {
+  content: " ↑";
+  opacity: 1;
+}
+
+th.sort-desc::after {
+  content: " ↓";
+  opacity: 1;
+}
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 4px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  z-index: 1000;
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+.notification-info {
+  background-color: var(--secondary-color);
+}
+
+.notification-warning {
+  background-color: var(--warning-color);
+}
+
+.notification-error {
+  background-color: var(--danger-color);
+}
+
+.notification-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.notification-close:hover {
+  opacity: 1;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .search-controls {
+    flex-direction: column;
+  }
+  
+  .search-controls .form-group,
+  .search-controls button {
+    width: 100%;
+  }
+  
+  .filter-groups {
+    flex-direction: column;
+  }
+  
+  .filter-group {
+    width: 100%;
+  }
+  
+  .filter-actions {
+    flex-direction: column;
+  }
+  
+  .filter-actions button {
+    width: 100%;
+  }
+}
